@@ -64,3 +64,11 @@ td {
 label{
   font-weight: bold;
 }
+
+.image-main {
+  width: 200px;
+}
+
+.image-hover {
+  width: 200px;
+}
