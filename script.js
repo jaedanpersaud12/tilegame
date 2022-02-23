@@ -40,28 +40,28 @@ const container = document.querySelector("#container");
 const button = document.querySelector("#reset")
 
 const tileCheck = function (e) {
-    if(!(solvedPairs == 8))
-    if (!(e.target.id == lastPick)) {
-        if (currentPair.length < 2) {
-            currentPair.push(parseInt(e.target.id))
-            lastPick = e.target.id
-            changeImage(e.target.id)
-            while (currentPair.length == 2) {
-                if (checkIfPair(currentPair) == true) {
-                    solvedPairs.push(currentPair)
-                } else {
-                    lastPick = undefined
-                    solvedPairs = []
-                    setTimeout(clearImage, 1000);
+    if (!(solvedPairs == 8))
+        if (!(e.target.id == lastPick)) {
+            if (currentPair.length < 2) {
+                currentPair.push(parseInt(e.target.id))
+                lastPick = e.target.id
+                changeImage(e.target.id)
+                while (currentPair.length == 2) {
+                    if (checkIfPair(currentPair) == true) {
+                        solvedPairs.push(currentPair)
+                    } else {
+                        lastPick = undefined
+                        solvedPairs = []
+                        setTimeout(clearImage, 1000);
+                    }
+                    currentPair = []
                 }
-                currentPair = []
+            } else {
+                currentPair.push(parseInt(e.target.id))
             }
         } else {
-            currentPair.push(parseInt(e.target.id))
+            alert("CHOOSE ANOTHER TILE")
         }
-    } else {
-        alert("CHOOSE ANOTHER TILE")
-    }
 
     if (solvedPairs.length == 8) {
         header.textContent = "YOU WIN!"
@@ -132,11 +132,10 @@ const changeImage = function (target) {
     }
 }
 
-function reset(){
+function reset() {
     lastPick = undefined
     solvedPairs = []
     clearImage()
     header.textContent = "MEMORY GAME"
 
 }
-
