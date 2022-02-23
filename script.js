@@ -46,13 +46,10 @@ const tileCheck = function (e) {
             currentPair.push(parseInt(e.target.id))
             lastPick = e.target.id
             changeImage(e.target.id)
-            console.log(currentPair);
             while (currentPair.length == 2) {
                 if (checkIfPair(currentPair) == true) {
                     solvedPairs.push(currentPair)
-                    console.log("FOUND A PAIR");
                 } else {
-                    console.log("TRY AGAIN");
                     lastPick = undefined
                     solvedPairs = []
                     setTimeout(clearImage, 1000);
