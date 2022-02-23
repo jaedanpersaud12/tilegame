@@ -67,7 +67,7 @@ const tileCheck = function (e) {
     }
 
     if (solvedPairs.length == 8) {
-        header.textContent = "YOU WIN"
+        header.textContent = "YOU WIN!"
     }
 
 }
@@ -139,5 +139,7 @@ function reset(){
     lastPick = undefined
     solvedPairs = []
     clearImage()
+    header.textContent = "MEMORY GAME"
+
 }
 
